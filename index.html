@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>On/Off Toggle</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="main" id="toggleSwitch">
+      <div class="state" id="stateContainer">
+        <div class="text">On</div>
+        <div class="circle"></div>
+      </div>
+    </div>
+
+    <script>
+      const toggleSwitch = document.getElementById('toggleSwitch');
+      const text = document.querySelector('.text');
+      const circle = document.querySelector('.circle');
+      const stateContainer = document.getElementById('stateContainer');
+      
+      toggleSwitch.addEventListener('click', function () {
+        if (text.textContent === "On") {
+          text.textContent = "Off";
+          toggleSwitch.style.backgroundColor = "red"; // Off background
+          circle.style.backgroundColor = "white"; // Off circle color
+          stateContainer.style.flexDirection = "row-reverse"; // Swap text and circle positions
+        } else {
+          text.textContent = "On";
+          toggleSwitch.style.backgroundColor = "blue"; // On background
+          circle.style.backgroundColor = "white"; // On circle color
+          stateContainer.style.flexDirection = "row"; // Reset to default text-circle position
+        }
+      });
+    </script>
+  </body>
+</html>
